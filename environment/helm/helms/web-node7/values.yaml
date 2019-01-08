@@ -1,0 +1,6 @@
+imageRegistry: "keep53tgdsfqwevz.tradex.tech:5000/web-manager-redisout"
+dockerTag: "1.2"
+pullPolicy: "Always"
+namefromvalue: "web-node7"
+nodeselector: "node7"
+namespace: "production"

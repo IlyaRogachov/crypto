@@ -1,0 +1,10 @@
+- hosts: vultr 
+  user: root
+  sudo: yes
+  roles:
+#       - python_install
+      - disable_firewalld
+      - enable_ipforwarding
+      - swapoff
+#      - ansible-role-selinux
+      - reboot

@@ -1,0 +1,10 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: redisout
+  namespace: {{.Values.namespace}}
+subsets:
+  - addresses:
+      - ip: 209.250.244.116
+    ports:
+      - port: 6379

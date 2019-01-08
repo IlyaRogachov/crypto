@@ -1,0 +1,19 @@
+---
+# tasks file for ansible-role-selinux
+
+- name: install libselinux-python for ansible selinux action
+  yum:
+    pkg:   libselinux-python
+    state: present
+  tags: [selinux]
+  when: (ansible_distribution == "CentOS" and ansible_distribution_major_version|int == 6) or
+        (ansible_distribution == "CentOS" and ansible_distribution_major_version|int == 7)
+
+
+- name: disabled
+  selinux:
+    state: disabled
+  ignore_errors: yes
+  tags: [selinux]
+  when: (ansible_distribution == "CentOS" and ansible_distribution_major_version|int == 6) or
+        (ansible_distribution == "CentOS" and ansible_distribution_major_version|int == 7)

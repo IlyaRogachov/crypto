@@ -1,0 +1,21 @@
+  apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    name: web
+    namespace: production
+  spec:
+    rules:
+      - host: cryptosignaller.net
+        http:
+          paths:
+            - backend:
+                serviceName: web
+                servicePort: 80
+              path: /
+    # This section is only required if TLS is to be enabled for the Ingress
+    tls:
+        - hosts:
+            - cryptosignaller.net
+          secretName: cryptosignaller 

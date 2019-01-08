@@ -1,0 +1,10 @@
+# This task disables swap for Kubernetes node (see https://github.com/kubernetes/kubernetes/pull/31996)
+  - name: 4.1.1 Disable IP Forwarding (Scored)
+    sysctl: >
+      name=net.ipv4.ip_forward
+      value=1
+      state=present
+    tags:
+      - scored
+      - section4.1
+      - section4.1.1

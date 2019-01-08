@@ -1,0 +1,16 @@
+---
+
+- name: Copy Kibana repo
+  template: 
+    src=kibana.repo.j2 dest=/etc/yum.repos.d/kibana.repo
+
+- name: Install Kibana
+  yum: name=kibana state=latest
+
+- name: Restrict hosts
+  lineinfile: 'dest=/etc/kibana/kibana.yml regexp=server.host line="server.host: 127.0.0.1"'
+  notify: Restart kibana
+
+- service:
+        name: kibana
+        state: restarted

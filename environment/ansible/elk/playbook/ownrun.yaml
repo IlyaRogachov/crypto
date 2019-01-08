@@ -1,0 +1,5 @@
+- hosts: elk
+  vars:
+  roles:
+        - ansible-elk
+        - firew
